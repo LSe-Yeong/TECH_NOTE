@@ -10,6 +10,13 @@
 
 ---
 
+## 05. Java
+
+| 문서 | 한 줄 요약 |
+|---|---|
+| [JVM 위에서 실행된다는 것](docs/05-java/00-jvm-why.md) | 워밍업·GC·Stop-the-World가 왜 존재하는가 |
+| [JVM 메모리: 힙, 스택, 메타스페이스](docs/05-java/01-jvm-memory.md) | OOM 에러 메시지로 어느 영역 문제인지 즉시 파악하기 |
+
 ## 06. Spring
 
 | 문서 | 한 줄 요약 |
