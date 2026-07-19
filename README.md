@@ -16,6 +16,8 @@
 |---|---|
 | [JVM 위에서 실행된다는 것](docs/05-java/00-jvm-why.md) | 워밍업·GC·Stop-the-World가 왜 존재하는가 |
 | [JVM 메모리: 힙, 스택, 메타스페이스](docs/05-java/01-jvm-memory.md) | OOM 에러 메시지로 어느 영역 문제인지 즉시 파악하기 |
+| [String 더하기가 루프 안에서 느린 이유](docs/05-java/22-string-builder.md) | `+` 연산이 O(n²)이 되는 구조와 StringBuilder를 써야 하는 시점 |
+| [List, Set, Map — 언제 무엇을 쓰는가](docs/05-java/23-collections-choice.md) | 자료구조 선택이 성능을 결정하는 이유와 구현체별 선택 기준 |
 
 ## 06. Spring
 
