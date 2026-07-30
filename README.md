@@ -25,6 +25,13 @@
 | [HTTP 요청 한 개가 내 코드에 닿기까지](docs/06-spring/00-spring-request-flow.md) | Filter · Interceptor · AOP 중 어디에 로직을 두어야 하는가 |
 | [의존성 주입은 무슨 문제를 푸는가](docs/06-spring/01-di-why.md) | `new`로 직접 만들 때 생기는 문제와 생성자 주입을 써야 하는 이유 |
 
+## 07. Database
+
+| 문서 | 한 줄 요약 |
+|---|---|
+| [INNER, LEFT, RIGHT JOIN이 실제로 하는 일](docs/07-database/22-join-types.md) | 같은 두 테이블인데 JOIN 종류에 따라 결과 집합이 달라지는 이유 |
+| [NULL이 만드는 예상치 못한 버그](docs/07-database/23-null-traps.md) | `NOT IN`이 조용히 0행을 반환하는 이유와 3치 논리 |
+
 ---
 
 ## 라이선스
