@@ -2,8 +2,8 @@ name: Daily Tech Note
 
 on:
   schedule:
-    # 매일 22:00 UTC = 07:00 KST. 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
-    - cron: "0 22 * * *"
+    # 매일 16:00 UTC = 01:00 KST(다음날). 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
+    - cron: "0 16 * * *"
   workflow_dispatch: {} # 수동 실행 테스트용
 
 permissions:
