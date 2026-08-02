@@ -1,0 +1,41 @@
+name: Daily Note Webhook
+
+on:
+  schedule:
+    # 매일 14:00 UTC = 23:00 KST. 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
+    - cron: "0 14 * * *"
+  workflow_dispatch: {} # 수동 실행 테스트용
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-note-webhook
+  cancel-in-progress: false
+
+jobs:
+  send-webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run daily_notes.py
+        env:
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+        run: python scripts/daily_notes.py
+
+      - name: 커서 상태 파일 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -f scripts/.daily_notes_state.json ]; then
+            git add scripts/.daily_notes_state.json
+            git diff --cached --quiet || git commit -m "chore(daily-webhook): 다음 발행 위치 갱신"
+            git push
+          fi
