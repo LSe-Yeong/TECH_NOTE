@@ -150,5 +150,5 @@ WHERE customer_id = 12345;
 
 - [MySQL 8.0 Reference Manual — How MySQL Uses Indexes](https://dev.mysql.com/doc/refman/8.0/en/mysql-indexes.html)
 - [MySQL 8.0 Reference Manual — Index Hints](https://dev.mysql.com/doc/refman/8.0/en/index-hints.html)
-- `07-database/01-btree-index` — 인덱스는 어떻게 빠른가
+- `daily/day05-btree-index.md` — 인덱스는 어떻게 빠른가
 - `07-database/05-index-not-used` — 인덱스가 있는데 안 타는 경우들

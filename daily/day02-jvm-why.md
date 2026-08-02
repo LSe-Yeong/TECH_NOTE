@@ -159,5 +159,5 @@ java -XX:TieredStopAtLevel=1 -jar app.jar
 ## 11. 참고자료
 
 - [JVM Technology Overview (Oracle Java 21)](https://docs.oracle.com/en/java/javase/21/vm/java-virtual-machine-technology-overview.html)
-- `05-java/01-jvm-memory.md` — JVM이 쓰는 메모리 구조
+- `daily/day02-jvm-memory.md` — JVM이 쓰는 메모리 구조
 - `05-java/03-gc-basics.md` — GC는 언제, 어떻게 작동하는가

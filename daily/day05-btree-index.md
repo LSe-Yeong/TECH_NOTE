@@ -169,5 +169,5 @@ SELECT user_id FROM session_cache WHERE token = 'abc123';
 
 - [MySQL 8.0 Reference Manual — Clustered and Secondary Indexes](https://dev.mysql.com/doc/refman/8.0/en/innodb-index-types.html)
 - [MySQL 8.0 Reference Manual — Comparison of B-Tree and Hash Indexes](https://dev.mysql.com/doc/refman/8.0/en/index-btree-hash.html)
-- `07-database/00-why-index` — 인덱스 없는 테이블은 왜 느린가
+- `daily/day05-why-index.md` — 인덱스 없는 테이블은 왜 느린가
 - `07-database/05-index-not-used` — 인덱스가 있는데 안 타는 경우들

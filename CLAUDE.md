@@ -30,6 +30,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ├── 규칙/
 │   ├── 지침서.md       ← 집필 지침 (작업 전 필독)
 │   └── 토픽맵.md       ← 토픽 목록 및 진행 상태 (작업 전 필독)
+├── daily/              ← 승인 절차 없는 일일 자동 생성물, 지침서 규칙 미적용
 ├── docs/
 │   ├── 01-linux-network/
 │   ├── 02-infra-cloud/

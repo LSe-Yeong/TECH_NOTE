@@ -191,6 +191,6 @@ java -XX:+HeapDumpOnOutOfMemoryError \
 ## 11. 참고자료
 
 - [GC Tuning Guide (Oracle Java 21)](https://docs.oracle.com/en/java/javase/21/gctuning/introduction-garbage-collection-tuning.html)
-- `05-java/00-jvm-why.md` — JVM이 애초에 왜 존재하는가
+- `daily/day02-jvm-why.md` — JVM이 애초에 왜 존재하는가
 - `05-java/02-reading-oom.md` — 힙 덤프를 실제로 읽는 법
 - `05-java/03-gc-basics.md` — GC가 힙을 어떻게 정리하는가

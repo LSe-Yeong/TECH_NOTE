@@ -116,7 +116,7 @@ SELECT CONCAT(name, ' - ', COALESCE(phone, '연락처 없음')) AS label FROM cu
 ## 8. 실무에서 찾아보는 NULL 처리
 
 - JPA `@Column(nullable = false)` — 컬럼 제약을 엔티티 매핑에 그대로 선언합니다.
-- `Optional<T>` — 서비스 계층에서 값이 없을 수 있음을 타입으로 드러냅니다. (`06-spring/01-di-why` 7장과 같은 패턴)
+- `Optional<T>` — 서비스 계층에서 값이 없을 수 있음을 타입으로 드러냅니다. (`daily/day01-di-why.md` 7장과 같은 패턴)
 - MyBatis `<if test="phone != null">` — 동적 쿼리에서 파라미터가 `null`일 때 조건을 통째로 뺍니다.
 
 ## 9. 관련된 개념과 비교
@@ -162,5 +162,5 @@ WHERE NOT EXISTS (
 
 - [MySQL 8.0 Reference Manual — Working with NULL Values](https://dev.mysql.com/doc/refman/8.0/en/working-with-null.html)
 - [MySQL 8.0 Reference Manual — Problems with NULL Values](https://dev.mysql.com/doc/refman/8.0/en/problems-with-null.html)
-- `07-database/22-join-types` — JOIN에서 NULL로 채워지는 컬럼 다루기
+- `daily/day04-join-types.md` — JOIN에서 NULL로 채워지는 컬럼 다루기
 - `07-database/05-index-not-used` — NULL이 인덱스 사용에 미치는 영향

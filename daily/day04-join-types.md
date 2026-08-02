@@ -202,5 +202,5 @@ RIGHT JOIN orders o ON c.id = o.customer_id;
 
 - [MySQL 8.0 Reference Manual — JOIN Clause](https://dev.mysql.com/doc/refman/8.0/en/join.html)
 - [MySQL 8.0 Reference Manual — Outer Join Optimization](https://dev.mysql.com/doc/refman/8.0/en/outer-join-optimization.html)
-- `07-database/23-null-traps` — NULL이 만드는 예상치 못한 버그
+- `daily/day04-null-traps.md` — NULL이 만드는 예상치 못한 버그
 - `07-database/05-index-not-used` — 조인 컬럼에 인덱스가 있는데 안 타는 경우들
