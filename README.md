@@ -31,6 +31,8 @@
 |---|---|
 | [INNER, LEFT, RIGHT JOIN이 실제로 하는 일](docs/07-database/22-join-types.md) | 같은 두 테이블인데 JOIN 종류에 따라 결과 집합이 달라지는 이유 |
 | [NULL이 만드는 예상치 못한 버그](docs/07-database/23-null-traps.md) | `NOT IN`이 조용히 0행을 반환하는 이유와 3치 논리 |
+| [인덱스 없는 테이블은 왜 느린가](docs/07-database/00-why-index.md) | 풀 테이블 스캔과 인덱스 스캔의 비용 차이, 그리고 인덱스가 오히려 손해인 경우 |
+| [인덱스는 어떻게 빠른가](docs/07-database/01-btree-index.md) | B+Tree 구조와 세컨더리 인덱스가 두 번 순회하는 이유 |
 
 ---
 
