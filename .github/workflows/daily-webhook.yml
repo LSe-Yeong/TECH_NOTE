@@ -2,8 +2,8 @@ name: Daily Note Webhook
 
 on:
   schedule:
-    # 매일 14:00 UTC = 23:00 KST. 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
-    - cron: "0 14 * * *"
+    # 매일 02:00 UTC = 11:00 KST. 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
+    - cron: "0 2 * * *"
   workflow_dispatch: {} # 수동 실행 테스트용
 
 permissions:
