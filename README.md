@@ -23,3 +23,5 @@
 | 4 | [NULL이 만드는 예상치 못한 버그](daily/day04-null-traps.md) | `NOT IN`이 조용히 0행을 반환하는 이유와 3치 논리 |
 | 5 | [인덱스 없는 테이블은 왜 느린가](daily/day05-why-index.md) | 풀 테이블 스캔과 인덱스 스캔의 비용 차이, 그리고 인덱스가 오히려 손해인 경우 |
 | 5 | [인덱스는 어떻게 빠른가](daily/day05-btree-index.md) | B+Tree 구조와 세컨더리 인덱스가 두 번 순회하는 이유 |
+| 6 | [DTO와 Entity를 분리해야 하는 이유](daily/day06-dto-vs-entity.md) | Entity를 API에 그대로 노출하면 생기는 Mass Assignment, 무한 재귀, LazyInitializationException |
+| 6 | [서비스 계층의 책임은 어디까지인가](daily/day06-service-layer-design.md) | Controller와 Repository 사이에서 Service가 조율만 하고 판단은 도메인에 맡겨야 하는 이유 |
