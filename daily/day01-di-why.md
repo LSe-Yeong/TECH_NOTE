@@ -23,11 +23,11 @@
 
 ### 3-1. 클래스 구성
 
-```mermaid
-flowchart TB
-    Scan["@ComponentScan\n패키지 탐색"] --> Register["@Component 클래스를\nBean으로 등록"]
-    Register --> Resolve["생성자 파라미터 타입으로\n필요한 Bean 탐색"]
-    Resolve --> Inject["순서대로 생성하고\n생성자에 주입"]
+```
+@ComponentScan (패키지 탐색)
+  → @Component 클래스를 Bean으로 등록
+  → 생성자 파라미터 타입으로 필요한 Bean 탐색
+  → 순서대로 생성하고 생성자에 주입
 ```
 
 ```java

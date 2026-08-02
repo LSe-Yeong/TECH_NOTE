@@ -66,14 +66,13 @@ public class OrderController {
 
 ### 3-2. 실행 흐름
 
-```mermaid
-flowchart LR
-    Client -->|"RequestDto (JSON)"| Controller
-    Controller -->|"검증된 값 전달"| Service
-    Service -->|"Entity 저장/조회"| Repository
-    Repository -->|"Entity"| Service
-    Service -->|"Entity → ResponseDto 변환"| Controller
-    Controller -->|"ResponseDto (JSON)"| Client
+```
+Client --(RequestDto, JSON)--> Controller
+Controller --(검증된 값 전달)--> Service
+Service --(Entity 저장/조회)--> Repository
+Repository --(Entity)--> Service
+Service --(Entity → ResponseDto 변환)--> Controller
+Controller --(ResponseDto, JSON)--> Client
 ```
 
 Entity는 Service와 Repository 사이에서만 돌아다닙니다. Controller 바깥, 즉 클라이언트와 마주치는 지점에는 DTO만 노출됩니다.

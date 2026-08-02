@@ -55,13 +55,10 @@ public class OrderService {
 
 ### 3-2. 실행 흐름
 
-```mermaid
-flowchart LR
-    Controller -->|"유스케이스 호출"| Service
-    Service -->|"트랜잭션 경계 안에서 조회/저장"| Repository
-    Service -->|"규칙 판단 위임"| Domain
-    Repository --> DB[(DB)]
-    Domain -->|"상태 변경 결과"| Service
+```
+Controller --(유스케이스 호출)--> Service
+Service --(트랜잭션 경계 안에서 조회/저장)--> Repository --> DB
+Service --(규칙 판단 위임)--> Domain --(상태 변경 결과)--> Service
 ```
 
 Service는 Repository에서 데이터를 가져와 Domain 객체에 판단을 맡기고, 그 결과를 다시 Repository로 저장합니다. "판단"이 Domain에 있다는 게 핵심입니다.

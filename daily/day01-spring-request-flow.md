@@ -62,15 +62,14 @@ public class AuthInterceptor implements HandlerInterceptor {
 
 ### 3-2. 실행 흐름
 
-```mermaid
-flowchart LR
-    Client -->|HTTP| FC["Filter Chain"]
-    FC --> DS["DispatcherServlet"]
-    DS --> HM["HandlerMapping\n컨트롤러 탐색"]
-    HM --> HI["Interceptor\npreHandle"]
-    HI --> Ctrl["@Controller"]
-    Ctrl --> HI2["Interceptor\npostHandle / afterCompletion"]
-    HI2 --> FC
+```
+Client --(HTTP)--> Filter Chain
+Filter Chain --> DispatcherServlet
+DispatcherServlet --> HandlerMapping (컨트롤러 탐색)
+HandlerMapping --> Interceptor.preHandle
+Interceptor.preHandle --> @Controller
+@Controller --> Interceptor.postHandle / afterCompletion
+Interceptor.postHandle / afterCompletion --> Filter Chain
 ```
 
 ```
