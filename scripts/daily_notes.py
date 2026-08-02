@@ -15,13 +15,17 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import urllib.error
+import urllib.request
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 README_PATH = REPO_ROOT / "README.md"
+ENV_PATH = REPO_ROOT / ".env"
 STATE_PATH = Path(__file__).resolve().parent / ".daily_notes_state.json"
 
 _ROW_RE = re.compile(
@@ -137,6 +141,93 @@ def get_next_day_notes() -> Optional[DailyPair]:
     return DailyPair(day=first_note.day, first=first_note, second=second_note)
 
 
+def _load_env_file(env_path: Path = ENV_PATH) -> None:
+    """.env 파일을 직접 파싱해 os.environ에 채운다 (외부 라이브러리 불필요).
+
+    이미 os.environ에 같은 키가 있으면 덮어쓰지 않는다.
+    """
+    if not env_path.exists():
+        return
+    for line in env_path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, _, value = line.partition("=")
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+_SECTION_HEADING_RE = re.compile(r"^## (\d+)\.\s*(.+)$")
+
+# 헤더 제목에 포함된 키워드로 이모지를 고른다. 지침서 §5 골격의 섹션들은
+# 문서마다 번호가 조금씩 다를 수 있어(선택적 섹션 생략 등) 번호가 아니라
+# 제목 키워드로 매칭한다. 매칭되는 게 없으면 기본 이모지를 쓴다.
+_SECTION_EMOJI = [
+    ("핵심 개념", "💡"),
+    ("구조", "🏗️"),
+    ("흐름", "🔄"),
+    ("특징", "⚖️"),
+    ("예제", "📝"),
+    ("원칙", "📐"),
+    ("확장", "🧩"),
+    ("실무", "🛠️"),
+    ("비교", "🔍"),
+    ("함정", "⚠️"),
+    ("참고자료", "📚"),
+]
+_DEFAULT_SECTION_EMOJI = "📌"
+
+
+def _emoji_for_heading(title: str) -> str:
+    for keyword, emoji in _SECTION_EMOJI:
+        if keyword in title:
+            return emoji
+    return _DEFAULT_SECTION_EMOJI
+
+
+def format_for_webhook(content: str) -> str:
+    """웹훅 전송용으로 '## N. 제목' 헤더 앞에 이모지를 붙인 사본을 반환한다.
+
+    원본 파일이나 note.content는 건드리지 않고, 전송 직전에만 적용한다.
+    """
+    lines = []
+    for line in content.splitlines():
+        match = _SECTION_HEADING_RE.match(line)
+        if match:
+            number, title = match.groups()
+            emoji = _emoji_for_heading(title)
+            lines.append(f"## {emoji} {number}. {title}")
+        else:
+            lines.append(line)
+    return "\n".join(lines)
+
+
+def send_webhook(message: str, webhook_url: Optional[str] = None) -> bool:
+    """message 하나를 웹훅 URL로 POST 전송한다. 본문은 {"text": message} 형태의 JSON이다.
+
+    webhook_url을 안 넘기면 .env의 WEBHOOK_URL을 사용한다.
+    """
+    _load_env_file()
+    url = webhook_url or os.environ.get("WEBHOOK_URL")
+    if not url:
+        print("WEBHOOK_URL이 없습니다. .env 파일에 WEBHOOK_URL을 설정하세요.")
+        return False
+
+    payload = json.dumps({"text": message}).encode("utf-8")
+    request = urllib.request.Request(
+        url,
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(request) as response:
+            print(f"웹훅 전송 완료 (status={response.status})")
+            return True
+    except urllib.error.URLError as exc:
+        print(f"웹훅 전송 실패: {exc}")
+        return False
+
+
 if __name__ == "__main__":
     pair = get_next_day_notes()
 
@@ -150,8 +241,11 @@ if __name__ == "__main__":
         print(f"[{pair.day}일차]")
         print(f"챕터1: {pair.first.title} ({pair.first.path})")
         print(f"  글자 수: {len(chapter1_content)}")
+        send_webhook(format_for_webhook(chapter1_content))
+
         if pair.second:
             print(f"챕터2: {pair.second.title} ({pair.second.path})")
             print(f"  글자 수: {len(chapter2_content)}")
+            send_webhook(format_for_webhook(chapter2_content))
         else:
             print("챕터2: 없음 (이 일차엔 글이 1개뿐)")
