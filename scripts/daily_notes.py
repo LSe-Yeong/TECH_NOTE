@@ -201,10 +201,24 @@ def format_for_webhook(content: str) -> str:
     return "\n".join(lines)
 
 
+# Mattermost 메시지 최대 길이가 16,383자라 여유를 두고 16,000자로 제한한다.
+# 생성 단계(daily-note.yml 프롬프트)에서도 이 한도를 지키게 했지만, 혹시 넘는
+# 글이 들어와도 전송이 아예 실패하지 않도록 여기서 한 번 더 방어한다.
+MAX_MESSAGE_LENGTH = 16000
+_TRUNCATION_NOTICE = "\n\n...(내용이 길어 이후 생략되었습니다)"
+
+
+def _truncate_for_webhook(message: str, limit: int = MAX_MESSAGE_LENGTH) -> str:
+    if len(message) <= limit:
+        return message
+    return message[: limit - len(_TRUNCATION_NOTICE)] + _TRUNCATION_NOTICE
+
+
 def send_webhook(message: str, webhook_url: Optional[str] = None) -> bool:
     """message 하나를 웹훅 URL로 POST 전송한다. 본문은 {"text": message} 형태의 JSON이다.
 
     webhook_url을 안 넘기면 .env의 WEBHOOK_URL을 사용한다.
+    message가 MAX_MESSAGE_LENGTH를 넘으면 잘라서 보낸다(Mattermost 메시지 길이 제한).
     """
     _load_env_file()
     url = webhook_url or os.environ.get("WEBHOOK_URL")
@@ -212,6 +226,7 @@ def send_webhook(message: str, webhook_url: Optional[str] = None) -> bool:
         print("WEBHOOK_URL이 없습니다. .env 파일에 WEBHOOK_URL을 설정하세요.")
         return False
 
+    message = _truncate_for_webhook(message)
     payload = json.dumps({"text": message}).encode("utf-8")
     request = urllib.request.Request(
         url,
