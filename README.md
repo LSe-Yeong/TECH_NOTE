@@ -15,3 +15,4 @@
 |---:|---|---|
 | 1 | [JVM 위에서 실행된다는 게 개발자에게 주는 것](daily/day01-jvm-why.md) | 런타임 최적화·GC·관측성을 얻는 대신 워밍업과 메모리 오버헤드를 지불한다 |
 | 2 | [HTTP 요청 한 개가 컨트롤러까지 오는 과정](daily/day02-spring-request-flow.md) | 필터 → DispatcherServlet → HandlerMapping → 컨트롤러. 이 경계가 예외 처리 범위를 결정한다 |
+| 3 | [에러 응답 포맷을 통일해야 하는 이유](daily/day03-api-error-format.md) | RFC 9457로 봉투를 맞춰도 설계는 남는다. 클라이언트가 분기할 안정적인 식별자를 주는 게 본질 |
