@@ -2,8 +2,9 @@ name: Daily Tech Note
 
 on:
   schedule:
-    # 매일 16:00 UTC = 01:00 KST(다음날). 시간을 바꾸려면 이 cron 값만 수정하면 됩니다.
-    - cron: "0 16 * * *"
+    # UTC 16:00 = KST 01:00(다음날)이라 날짜가 하루 넘어간다.
+    # KST 기준 월~금에만 돌게 하려면 UTC 요일은 일~목(0-4)이어야 한다. (UTC 금·토 새벽엔 KST로 토·일이 되므로 제외)
+    - cron: "0 16 * * 0-4"
   workflow_dispatch: {} # 수동 실행 테스트용
 
 permissions:
