@@ -23,3 +23,4 @@
 | 8 | [의존성 주입은 무슨 문제를 푸는가](daily/day08-di-why.md) | `new`를 줄이는 기능이 아니라 "고르는 결정"을 바깥으로 옮기는 것. 생성자 주입이 기본이고, 순환 참조는 설계 신호 |
 | 9 | [실무 REST의 현실 — 무엇을 지키고 무엇을 버리는가](daily/day09-rest-api-design.md) | 순수성 논쟁 대신 재시도 안전성·오류 판별 가능성·변경 내성으로 설계한다. 멱등성은 인프라가 실제로 따르는 계약 |
 | 10 | [public/private 서브넷의 실체는 라우팅 테이블입니다](daily/day10-route-table.md) | 퍼블릭이라는 리소스 타입은 없다. IGW 라우트 한 줄이 실체이고, 우선순위는 최장 프리픽스 → 정적 → 프리픽스 리스트 → 전파 순 |
+| 11 | [NULL이 만드는 예상치 못한 버그](daily/day11-null-traps.md) | NULL은 값이 아니라 "모름"이고, WHERE는 UNKNOWN을 버린다. NOT IN·LEFT JOIN·UNIQUE·CHECK가 조용히 무력화되는 지점 |
