@@ -25,3 +25,4 @@
 | 10 | [public/private 서브넷의 실체는 라우팅 테이블입니다](daily/day10-route-table.md) | 퍼블릭이라는 리소스 타입은 없다. IGW 라우트 한 줄이 실체이고, 우선순위는 최장 프리픽스 → 정적 → 프리픽스 리스트 → 전파 순 |
 | 11 | [NULL이 만드는 예상치 못한 버그](daily/day11-null-traps.md) | NULL은 값이 아니라 "모름"이고, WHERE는 UNKNOWN을 버린다. NOT IN·LEFT JOIN·UNIQUE·CHECK가 조용히 무력화되는 지점 |
 | 12 | [API 문서 자동화하기](daily/day12-swagger-api-docs.md) | 자동 생성은 "형태"만 보증하고 "의미"는 사람 몫. 목표는 Swagger UI가 아니라 CI에 넣는 OpenAPI 스펙 파일 |
+| 13 | [String 더하기가 루프 안에서 느린 이유](daily/day13-string-builder.md) | 불변 객체를 누적하면 O(n²). 반대로 개수가 고정된 연결은 `+`가 수동 StringBuilder보다 빠르다 |
