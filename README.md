@@ -28,3 +28,4 @@
 | 13 | [String 더하기가 루프 안에서 느린 이유](daily/day13-string-builder.md) | 불변 객체를 누적하면 O(n²). 반대로 개수가 고정된 연결은 `+`가 수동 StringBuilder보다 빠르다 |
 | 14 | [DTO와 Entity를 분리해야 하는 이유](daily/day14-dto-vs-entity.md) | 분리 근거는 계층이 아니라 변경 이유. 엔티티를 경계에 두면 스키마 변경이 곧 API 계약 변경이 되고, 요청 쪽에선 대량 할당이 열린다 |
 | 15 | [커서 기반 페이지네이션이 필요한 순간](daily/day15-pagination-api.md) | 위치를 개수로 쓰느냐 값으로 쓰느냐의 차이. 커서는 성능과 정합성을 사는 대신 페이지 번호·총건수·정렬 변경을 판다 |
+| 16 | [들어오는 문과 나가는 문은 다릅니다 — IGW와 NAT Gateway](daily/day16-igw-natgw.md) | IGW는 방향을 못 나누고 NAT는 나눈다. 무료인 IGW 대신 돈 내고 NAT를 쓰는 이유가 그것. 55,000 연결 한도와 350초 타임아웃이 대가 |
