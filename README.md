@@ -31,3 +31,4 @@
 | 16 | [들어오는 문과 나가는 문은 다릅니다 — IGW와 NAT Gateway](daily/day16-igw-natgw.md) | IGW는 방향을 못 나누고 NAT는 나눈다. 무료인 IGW 대신 돈 내고 NAT를 쓰는 이유가 그것. 55,000 연결 한도와 350초 타임아웃이 대가 |
 | 17 | [인덱스 없는 테이블은 왜 느린가](daily/day17-why-index.md) | 비용의 단위는 행이 아니라 16KB 페이지. 인덱스는 빨리 읽는 장치가 아니라 안 읽어도 되는 페이지를 잘라내는 장치 |
 | 18 | [배포할 때 요청이 끊기지 않으려면](daily/day18-graceful-shutdown.md) | 끊긴 요청 대부분은 죽기 시작한 뒤 도착한 것. 해법은 빨리 죽는 게 아니라 라우터가 나를 지울 때까지 일부러 늦게 죽는 것 |
+| 19 | [List·Set·Map, 무엇을 기준으로 고르는가](daily/day19-collections-choice.md) | 인터페이스는 "무엇을 물어보는가"가, 구현체는 접근 패턴이 정한다. 20만 건에서 `List.contains`는 14초, `HashSet`은 4.7ms |
