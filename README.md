@@ -34,3 +34,4 @@
 | 19 | [List·Set·Map, 무엇을 기준으로 고르는가](daily/day19-collections-choice.md) | 인터페이스는 "무엇을 물어보는가"가, 구현체는 접근 패턴이 정한다. 20만 건에서 `List.contains`는 14초, `HashSet`은 4.7ms |
 | 20 | [서비스 계층의 책임은 어디까지인가](daily/day20-service-layer-design.md) | 경계는 "무엇을 넣을까"가 아니라 "무엇이 함께 커밋되는가"가 정한다. 트랜잭션 안에서 외부 API를 부르는 순간 커넥션이 마른다 |
 | 21 | [재시도가 안전하려면 — 멱등성](daily/day21-idempotency.md) | 재시도는 선택지가 아니라 이미 일어나는 일. 메서드·자원 설계·요청 키 세 층으로 만들고, 승자 판정은 애플리케이션이 아니라 유니크 제약에 맡긴다 |
+| 22 | [Stateful과 Stateless의 차이가 만드는 실수 — 보안 그룹과 네트워크 ACL](daily/day22-sg-vs-nacl.md) | NACL을 붙이는 순간 응답이 임시 포트로 나간다는 사실이 장애가 된다. 세밀한 통제는 보안 그룹, NACL은 거부·가드레일·즉시 차단용 |
