@@ -38,3 +38,4 @@
 | 23 | [인덱스는 어떻게 빠른가 — B+Tree의 내부](daily/day23-btree-index.md) | 디스크에서는 비교 횟수가 아니라 페이지 방문 횟수가 비용. 페이지 사이와 페이지 안, 두 겹의 이진 탐색으로 찾고 트리는 시간이 지나면 헐거워진다 |
 | 24 | [팀 로컬 개발 환경 표준화하기](daily/day24-local-dev-env.md) | README는 틀려도 아무 일이 없지만 compose.yaml이 틀리면 즉시 깨진다. 툴체인·백킹 서비스·설정 세 층을 파일로 내리는 것이 표준화 |
 | 25 | [로그를 `System.out.println`으로 찍으면 안 되는 이유](daily/day25-logging-basics.md) | println은 "얼마나 자세히·어디로·어떻게 찾을지"를 코드 수정 시점에 못 박는다. `System.out`은 128바이트 버퍼에 autoFlush=true라 줄마다 flush |
+| 26 | [API 응답 포맷 통일하기](daily/day26-response-design.md) | 통일할 것은 봉투가 아니라 상태 채널·최상위 형태·필드 표기·목록 모양 네 가지. 성공 봉투엔 표준이 없고, "항상 200"은 모니터링과 재시도를 통째로 무력화한다 |
