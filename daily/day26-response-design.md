@@ -52,7 +52,7 @@
 1. **네이밍** — `camelCase` 또는 `snake_case` 중 하나. 섞으면 클라이언트 매핑이 엔드포인트마다 달라집니다.
 2. **날짜·시각** — ISO-8601 문자열로 통일하고 오프셋을 포함합니다(`2026-09-03T14:03:11+09:00`).
 3. **금액** — 부동소수 금지. 정수 최소 단위(원 단위) 또는 문자열로 보냅니다.
-4. **식별자** — `Long` ID를 JSON 숫자로 내보내면 JavaScript의 안전 정수 범위(2^53-1) 밖에서 정밀도가 깨집니다. 큰 ID는 문자열로 보냅니다.
+4. **식별자** — `Long` ID를 JSON 숫자로 내보내면 JavaScript의 안전 정수 범위(`Number.MAX_SAFE_INTEGER` = 2^53-1, [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER)) 밖에서 정밀도가 깨집니다. 큰 ID는 문자열로 보냅니다.
 5. **null** — 필드를 통째로 빼는가, `null`로 두는가. 하나로 정합니다.
 
 Spring Boot 4는 Jackson 3를 기본으로 씁니다([Spring Boot — JSON](https://docs.spring.io/spring-boot/reference/features/json.html)). Jackson 3.0은 `WRITE_DATES_AS_TIMESTAMPS` 기본값을 `false`로 바꿨습니다([Migrating to Jackson 3](https://github.com/FasterXML/jackson/blob/main/jackson3/MIGRATING_TO_JACKSON_3.md)). 즉 2.x 시절 숫자 타임스탬프로 나가던 `OffsetDateTime`이 ISO-8601 문자열로 나갑니다. 규약을 코드가 아니라 라이브러리 기본값에 맡겨 뒀다면, 버전을 올리는 날 응답 포맷이 바뀝니다.
