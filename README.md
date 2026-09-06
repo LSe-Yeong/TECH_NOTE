@@ -39,3 +39,4 @@
 | 24 | [팀 로컬 개발 환경 표준화하기](daily/day24-local-dev-env.md) | README는 틀려도 아무 일이 없지만 compose.yaml이 틀리면 즉시 깨진다. 툴체인·백킹 서비스·설정 세 층을 파일로 내리는 것이 표준화 |
 | 25 | [로그를 `System.out.println`으로 찍으면 안 되는 이유](daily/day25-logging-basics.md) | println은 "얼마나 자세히·어디로·어떻게 찾을지"를 코드 수정 시점에 못 박는다. `System.out`은 128바이트 버퍼에 autoFlush=true라 줄마다 flush |
 | 26 | [API 응답 포맷 통일하기](daily/day26-response-design.md) | 통일할 것은 봉투가 아니라 상태 채널·최상위 형태·필드 표기·목록 모양 네 가지. 성공 봉투엔 표준이 없고, "항상 200"은 모니터링과 재시도를 통째로 무력화한다 |
+| 27 | [깨지는 변경을 다루는 법 — API 버저닝은 마지막 수단](daily/day27-api-versioning.md) | 기준은 "클라이언트가 코드를 안 고쳐도 도는가" 하나. 버전 하나의 가격은 최소 1~2년 이중 운영이라, 기본 전략은 호환 확장이고 버저닝은 못 피할 때만 |
