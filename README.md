@@ -42,3 +42,4 @@
 | 27 | [깨지는 변경을 다루는 법 — API 버저닝은 마지막 수단](daily/day27-api-versioning.md) | 기준은 "클라이언트가 코드를 안 고쳐도 도는가" 하나. 버전 하나의 가격은 최소 1~2년 이중 운영이라, 기본 전략은 호환 확장이고 버저닝은 못 피할 때만 |
 | 28 | [User, Role, Policy는 왜 셋으로 나뉘어 있는가 — IAM의 기본 구조](daily/day28-iam-basics.md) | 셋을 나눈 이유는 자격증명의 수명을 권한 정의와 분리하기 위해서. 판정은 "기본 거부 → 명시적 Allow → 상한 정책과 교집합 → 명시적 Deny 최우선" 네 줄이 전부 |
 | 29 | [실행계획 읽는 법 — 느린 쿼리 앞에서 무엇을 어떤 순서로 보는가](daily/day29-explain-plan.md) | EXPLAIN은 결과가 아니라 추정 계획서. type → rows×filtered → Extra → 드라이빙 테이블 순으로 읽고, 검증은 EXPLAIN ANALYZE의 loops 곱셈이 한다 |
+| 30 | [헬스체크 엔드포인트 제대로 만들기](daily/day30-application-healthcheck.md) | 헬스체크는 지표가 아니라 재시작·트래픽 차단을 발동시키는 트리거. 전 인스턴스가 동시에 실패하는 검사는 liveness에도 readiness에도 넣지 않는다 |
