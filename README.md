@@ -44,3 +44,4 @@
 | 29 | [실행계획 읽는 법 — 느린 쿼리 앞에서 무엇을 어떤 순서로 보는가](daily/day29-explain-plan.md) | EXPLAIN은 결과가 아니라 추정 계획서. type → rows×filtered → Extra → 드라이빙 테이블 순으로 읽고, 검증은 EXPLAIN ANALYZE의 loops 곱셈이 한다 |
 | 30 | [헬스체크 엔드포인트 제대로 만들기](daily/day30-application-healthcheck.md) | 헬스체크는 지표가 아니라 재시작·트래픽 차단을 발동시키는 트리거. 전 인스턴스가 동시에 실패하는 검사는 liveness에도 readiness에도 넣지 않는다 |
 | 31 | [스택트레이스를 읽는 법](daily/day31-stacktrace-reading.md) | 위에서부터 읽으면 프레임워크만 보다 끝난다. 맨 아래 `Caused by:`부터 거꾸로 읽고, 트레이스가 비었다면 fast throw — 그 자체가 "너무 자주 터진다"는 신호 |
+| 32 | [빈은 언제 만들어지고 언제 죽나](daily/day32-bean-lifecycle.md) | 생명주기는 객체의 수명이 아니라 컨테이너가 책임지는 구간. AOP 프록시는 `@PostConstruct`보다 뒤에 붙고, 프로토타입 빈의 소멸 콜백은 아예 등록되지 않는다 |
