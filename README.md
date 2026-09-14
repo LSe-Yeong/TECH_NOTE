@@ -45,3 +45,4 @@
 | 30 | [헬스체크 엔드포인트 제대로 만들기](daily/day30-application-healthcheck.md) | 헬스체크는 지표가 아니라 재시작·트래픽 차단을 발동시키는 트리거. 전 인스턴스가 동시에 실패하는 검사는 liveness에도 readiness에도 넣지 않는다 |
 | 31 | [스택트레이스를 읽는 법](daily/day31-stacktrace-reading.md) | 위에서부터 읽으면 프레임워크만 보다 끝난다. 맨 아래 `Caused by:`부터 거꾸로 읽고, 트레이스가 비었다면 fast throw — 그 자체가 "너무 자주 터진다"는 신호 |
 | 32 | [빈은 언제 만들어지고 언제 죽나](daily/day32-bean-lifecycle.md) | 생명주기는 객체의 수명이 아니라 컨테이너가 책임지는 구간. AOP 프록시는 `@PostConstruct`보다 뒤에 붙고, 프로토타입 빈의 소멸 콜백은 아예 등록되지 않는다 |
+| 33 | [캐시 전략은 어떻게 고르는가 — Cache-Aside, Write-Through, Write-Behind](daily/day33-cache-strategy.md) | 고르는 건 하나가 아니라 읽기 전략 × 쓰기 전략. 기본값은 "DB 커밋 후 캐시 삭제"이고, 갱신이 아니라 삭제인 이유는 순서가 뒤집혀도 결과가 같기 때문 |
