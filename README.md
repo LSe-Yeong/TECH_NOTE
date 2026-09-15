@@ -46,3 +46,4 @@
 | 31 | [스택트레이스를 읽는 법](daily/day31-stacktrace-reading.md) | 위에서부터 읽으면 프레임워크만 보다 끝난다. 맨 아래 `Caused by:`부터 거꾸로 읽고, 트레이스가 비었다면 fast throw — 그 자체가 "너무 자주 터진다"는 신호 |
 | 32 | [빈은 언제 만들어지고 언제 죽나](daily/day32-bean-lifecycle.md) | 생명주기는 객체의 수명이 아니라 컨테이너가 책임지는 구간. AOP 프록시는 `@PostConstruct`보다 뒤에 붙고, 프로토타입 빈의 소멸 콜백은 아예 등록되지 않는다 |
 | 33 | [캐시 전략은 어떻게 고르는가 — Cache-Aside, Write-Through, Write-Behind](daily/day33-cache-strategy.md) | 고르는 건 하나가 아니라 읽기 전략 × 쓰기 전략. 기본값은 "DB 커밋 후 캐시 삭제"이고, 갱신이 아니라 삭제인 이유는 순서가 뒤집혀도 결과가 같기 때문 |
+| 34 | [최소 권한은 왜 실무에서 무너지는가](daily/day34-iam-least-privilege.md) | 권한은 넓히는 방향으로만 압력이 있어서 단방향으로 자란다. 좁히는 순서는 Action → Resource → Condition이고, 위험은 개수가 아니라 "여기서 더 강해질 수 있는가"로 잰다 |
