@@ -50,3 +50,4 @@
 | 35 | [복합 인덱스의 컬럼 순서는 무엇이 정하는가](daily/day35-composite-index-order.md) | 순서를 정하는 건 카디널리티가 아니라 쿼리가 그 컬럼을 어떤 연산자로 쓰느냐. 등치는 다음 컬럼으로 문을 열고 범위는 거기서 닫는다 — 그래서 등치 → 정렬 → 범위 |
 | 36 | [장애 났을 때 필요한 로그는 무엇인가](daily/day36-log-design.md) | 기준은 자세함이 아니라 검색 가능성. 요청당 한 줄의 요약, 요청을 잇는 식별자, 결과가 아닌 원인 체인 — 그리고 나머지를 덜 남기기로 하는 결정 |
 | 37 | [컬렉션에서 객체가 사라지는 이유 — equals와 hashCode의 계약](daily/day37-equals-hashcode.md) | 객체는 사라진 게 아니라 주소가 바뀐 것. 버킷은 hashCode가 정하고 일치는 equals가 정하므로, 해시에 들어가는 필드는 불변이어야 한다 |
+| 38 | [순환 참조가 알려주는 설계 문제](daily/day38-circular-reference.md) | 기동 실패는 증상이고 본체는 책임 배치. `@Lazy`·`ObjectProvider`·`allow-circular-references`는 전부 주입 시점을 미룰 뿐이고, 마지막 것은 생성자 사이클을 구하지도 못한다 |
