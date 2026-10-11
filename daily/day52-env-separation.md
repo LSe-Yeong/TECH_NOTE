@@ -2,7 +2,7 @@
 
 > 이 문서가 답할 질문: **환경을 나눈다는 건 설정 파일을 복사하는 일이 아니라 경계를 긋는 일입니다. 그 경계를 어디에, 얼마나 세게 그어야 하는가?**
 >
-> 기준: AWS 멀티 계정 백서·Spring Boot 3.x/4.x 프로필 문서·Terraform CLI 문서 (2026년 10월 확인). 설정 값을 밖으로 빼는 방법은 `day06-env-variable.md`, 로컬 환경 표준화는 `day24-local-dev-env.md`, 권한 범위는 `day34-iam-least-privilege.md`와 이어집니다.
+> 기준: AWS 멀티 계정 백서·Spring Boot 4.1 프로필 문서·Terraform CLI 문서 (2026년 10월 확인). <!-- TODO: 프로필 전용 문서에서 `spring.profiles.active`를 못 쓴다는 제약은 4.1 문서에서만 확인했습니다. 2.4 이후 계속 유지된 제약으로 보이지만 3.x 문서로 교차확인이 필요합니다. --> 설정 값을 밖으로 빼는 방법은 `day06-env-variable.md`, 로컬 환경 표준화는 `day24-local-dev-env.md`, 권한 범위는 `day34-iam-least-privilege.md`와 이어집니다.
 
 ## 1. 환경은 "설정의 집합"이 아니라 "경계의 집합"입니다
 
